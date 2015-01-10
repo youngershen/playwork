@@ -1,6 +1,4 @@
 from setuptools import setup, find_packages
-import sys, os
-
 version = '0.0.1'
 
 setup(name='playwork',
@@ -30,12 +28,12 @@ setup(name='playwork',
       include_package_data=True,
       zip_safe=True,
       install_requires=[
-          # -*- Extra requirements: -*-
-            "tornado>=4.0.2"
+        "tornado>=4.0.2"
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
+      entry_points={'console_scripts': [
+        'playwork-admin = playwork.command:command',
+      ]},
+      scripts=['playwork/bin/playwork-admin.py'],
       test_suite="playwork.test",
       tests_require=["pyflakes>=0.6.1", "pep8>=1.4.1"],
       )
